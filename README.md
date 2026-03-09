@@ -1,2 +1,2 @@
-# aws-ecs-fargate-devops
+# Aws-Ecs-Fargate-Devops
 Production-Like AWS infrastructure for a containerized web app using ECS Fargate, ALB, Terraform IaC, and GitHub Actions CI/CD pipeline
