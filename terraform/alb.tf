@@ -1,9 +1,9 @@
 resource "aws_lb" "project_application_lb" {
-  name               = "project-application-lb"
-  internal           = false
-  load_balancer_type = "application"
-  security_groups    = [aws_security_group.project_alb_sg.id]
-  subnets            = [aws_subnet.project_vpc_subnet_public_2a.id, aws_subnet.project_vpc_subnet_public_2b.id]
+  name                       = "project-application-lb"
+  internal                   = false
+  load_balancer_type         = "application"
+  security_groups            = [aws_security_group.project_alb_sg.id]
+  subnets                    = [aws_subnet.project_vpc_subnet_public_2a.id, aws_subnet.project_vpc_subnet_public_2b.id]
   enable_deletion_protection = false
   tags = {
     Name = "project-application-lb"
