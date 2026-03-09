@@ -1,3 +1,4 @@
+#Var Values for  VPC
 region = "us-east-2"
 
 vpc_cidr = "10.0.0.0/24"
@@ -15,3 +16,6 @@ subnet_cidr_private_2b = "10.0.0.192/26"
 availability_zone_2a = "us-east-2a"
 
 availability_zone_2b = "us-east-2b"
+###
+
+#Var Values
