@@ -15,7 +15,8 @@ jobs:
       - name: Fetch Code
         uses: actions/checkout@v3
 
-        #Best Practice use Role w/ OpenID connect.
+        #Best Practice is to use Role w/ OpenID connect.
+        #Come back to this after MVP is obtained.
       - name: "Configure AWS Credentials" 
         uses: aws-actions/configure-aws-credentials@v6.0.0
         with: 
