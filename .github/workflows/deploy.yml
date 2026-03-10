@@ -17,8 +17,25 @@ jobs:
 
         #Best Practice is to use Role w/ OpenID connect.
         #Come back to this after MVP is obtained.
-      - name: "Configure AWS Credentials" 
+      - name: Configure AWS Credentials 
         uses: aws-actions/configure-aws-credentials@v6.0.0
-        with: 
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
+        
+          #Signing into ECR
+      - name: Amazon ECR "Login" Action for GitHub Actions
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2.0.1
+
+      - name: Build, tag, and push docker image to Amazon ECR
+        env:
+          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          REPOSITORY: archiveaaaada/devops-project2
+          IMAGE_TAG: ${{ github.sha }} #SHA gives each image a unique tag
+        run: |
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG  
+      
 
