@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "project_ecr_repo" {
-  name                 = "archiveaaaada/devops-project2"
+  name                 = "production/project-repo"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
@@ -7,6 +7,6 @@ resource "aws_ecr_repository" "project_ecr_repo" {
   }
 
   tags = {
-    Name = "archiveaaaada/devops-project2"
+    Name = "production/project-repo"
   }
 }
