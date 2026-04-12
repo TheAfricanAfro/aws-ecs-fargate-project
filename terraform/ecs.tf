@@ -1,12 +1,6 @@
 resource "aws_ecs_cluster" "project_cluster" {
   name = "project-cluster"
 
-  #Interesting. Come back to this later.
-  setting {
-    name  = "containerInsights"
-    value = "enabled"
-  }
-
   tags = {
     Name = "project-cluster"
   }
