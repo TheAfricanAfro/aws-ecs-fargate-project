@@ -11,7 +11,7 @@ resource "aws_ecs_task_definition" "project_task" {
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
   cpu                      = 512  #.5CPU
-  memory                   = 3072 # 3GB
+  memory                   = 1024 # 1GB
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   container_definitions = jsonencode([
     {
