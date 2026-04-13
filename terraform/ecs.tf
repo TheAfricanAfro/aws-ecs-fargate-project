@@ -54,9 +54,9 @@ resource "aws_ecs_service" "project_service" {
     container_name   = "project-container"
     container_port   = 4000
   }
-  
+
   lifecycle {
-    ignore_changes = [ task_definition ]
+    ignore_changes = [task_definition, desired_count]
   }
 
   depends_on = [aws_lb_listener.project_listener]
