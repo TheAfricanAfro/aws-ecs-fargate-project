@@ -7,7 +7,7 @@ resource "aws_ecs_cluster" "project_cluster" {
 }
 
 resource "aws_ecs_task_definition" "project_task" {
-  family                   = "project-task"
+  family                   = "project-task-definition"
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
   cpu                      = 512  #.5CPU
