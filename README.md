@@ -48,12 +48,12 @@ From there, I built the infrastructure piece by piece:
 ### Automating deployment with Github Actions
 
 The GitHub Actions workflow is set up so that every push to master automatically deploys the changes to ECS. The job runs on an Ubuntu runner. First it clones the repo, then authenticates with AWS using credentials stored as GitHub repo secrets (This requires creating an IAM User, granting it sufficient permissions, and adding its access keys to Github). Now Authenticated, the runner connects to the private ECR repo, builds the Docker image, and pushes it. Each image is tagged with a unique hash, and then re-tagged as :latest because the task definition references the :latest tag. And the final step deploys the new image to ECS. AWS recommends keeping the task-definition.json committed to the repo as code, just in case you want to make some changes to the task definition file in the future. To populate it the first time, after the initial terraform apply and the first successful CI deplot, I ran the following command:
-```bahs
+```bash
 aws ecs describe-task-definition \
    --task-definition my-task-definition-family \
    --query taskDefinition > task-definition.json
 ```
-then pushed the file to master. 
+then pushed the file to master. From that point onward, every push to master automatically deploys to ECS. Pretty cool right? 
 
 
 [GithubActions Diagram Goes here. Reminder to upload it to the repo embed into the readme. Also make sure both pictures are the same resoultion otherwise it'll look weird on tehu repo. ]
