@@ -1,4 +1,8 @@
 # aws-ecs-fargate-project
+
+<img width="3480" height="1800" alt="homepage" src="https://github.com/user-attachments/assets/664303e7-7e9c-4766-85f0-2d3a1530865e" />
+
+
 Containerized a web app and deployed it to AWS ECS Fargate using Terraform for IAC and Github Actions for continous integration and continious deployment. 
 
 ## Why I built this
