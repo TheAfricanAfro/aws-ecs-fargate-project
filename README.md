@@ -48,6 +48,8 @@ From there, I built the infrastructure piece by piece:
 
 After creating the core infrastructure, I added autoscaling so the ECS service could automatically handle increased load. I used Application Auto Scaling with a target tracking policy configured to maintain average CPU utilization at 70%, allowing the service to scale between 1 and 4 tasks. One important adjustment was updating the ECS service lifecycle configuration to ignore changes to desired_count, so Terraform wouldn’t overwrite scaling actions performed by Application Auto Scaling during the next apply. Without this, Terraform could attempt to revert the task count based on the state file. The same applies to the task definition file.
 
+Here's an example of how that process works. 
+
 <img width="3820" height="1800" alt="high load" src="https://github.com/user-attachments/assets/c6744527-1155-4354-931f-691ffe3ae2c8" />
 
 <img width="2060" height="1232" alt="CPU High" src="https://github.com/user-attachments/assets/5406554c-e763-4d33-81f6-3b34dd717b15" />
