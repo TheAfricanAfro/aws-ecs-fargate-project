@@ -55,7 +55,7 @@ After creating the core infrastructure, I added autoscaling so the ECS service c
 
 Here's an example of how that process works: 
 
-![](images/high-load)
+![](images/high-load.png)
 
 ![](images/CPU-High.png)
 
